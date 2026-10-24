@@ -1,0 +1,226 @@
+{
+  "storyId": "zombie-survival",
+  "startStepId": "step-1",
+  "steps": [
+    {
+      "id": "step-1",
+      "speaker": "Radio Operator",
+      "message": "Attention, survivors! The evacuation helicopter leaves in ten minutes. If you don't reach the rooftop in time, you'll be left behind!",
+      "choices": [
+        {
+          "id": "A",
+          "text": "I'd better take the main road. It's the fastest route.",
+          "nextStepId": "step-2-road"
+        },
+        {
+          "id": "B",
+          "text": "I should avoid crowded streets and find another way.",
+          "nextStepId": "step-2-alley"
+        },
+        {
+          "id": "C",
+          "text": "Perhaps I could convince the zombies to give me a ride.",
+          "nextStepId": "step-2-funny"
+        }
+      ]
+    },
+    {
+      "id": "step-2-road",
+      "speaker": "Narrator",
+      "message": "You rush down the main road, but several abandoned vehicles block your path. You hear footsteps approaching from behind.",
+      "choices": [
+        {
+          "id": "A",
+          "text": "I should look for a way around the vehicles.",
+          "nextStepId": "step-3"
+        },
+        {
+          "id": "B",
+          "text": "If I climbed onto that truck, I might spot another route.",
+          "nextStepId": "step-3"
+        },
+        {
+          "id": "C",
+          "text": "I'll hide behind a car until the street is clear.",
+          "nextStepId": "step-3"
+        }
+      ]
+    },
+    {
+      "id": "step-2-alley",
+      "speaker": "Narrator",
+      "message": "You enter a narrow alley. It's quiet, but you notice fresh footprints leading toward an abandoned pharmacy.",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Someone might still be inside. I'll investigate.",
+          "nextStepId": "step-3"
+        },
+        {
+          "id": "B",
+          "text": "I'd rather keep moving than take unnecessary risks.",
+          "nextStepId": "step-3"
+        },
+        {
+          "id": "C",
+          "text": "Those footprints could belong to another survivor.",
+          "nextStepId": "step-3"
+        }
+      ]
+    },
+    {
+      "id": "step-2-funny",
+      "speaker": "Narrator",
+      "message": "You wave at a zombie. Unfortunately, it seems more interested in eating you than offering a lift. You sprint into a nearby building.",
+      "choices": [
+        {
+          "id": "A",
+          "text": "That was a terrible idea. I'd better find a safer route.",
+          "nextStepId": "step-3"
+        },
+        {
+          "id": "B",
+          "text": "Perhaps I should focus on surviving rather than making friends.",
+          "nextStepId": "step-3"
+        },
+        {
+          "id": "C",
+          "text": "Maybe the next zombie will be more cooperative.",
+          "nextStepId": "step-3"
+        }
+      ]
+    },
+    {
+      "id": "step-3",
+      "speaker": "Stranger",
+      "message": "Wait! Please help me! I've injured my leg, and I can't reach the evacuation point alone!",
+      "choices": [
+        {
+          "id": "A",
+          "text": "I'll help you. We might still make it if we work together.",
+          "nextStepId": "step-4-ally"
+        },
+        {
+          "id": "B",
+          "text": "I'm sorry, but I can't risk missing the helicopter.",
+          "nextStepId": "step-4-alone"
+        },
+        {
+          "id": "C",
+          "text": "Can you walk if I support you? We need to move quickly.",
+          "nextStepId": "step-4-ally"
+        }
+      ]
+    },
+    {
+      "id": "step-4-ally",
+      "speaker": "Stranger",
+      "message": "Thank you! I know a shortcut through the hospital. If we take it, we should reach the rooftop before the helicopter leaves.",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Let's take the shortcut. We can't afford to waste time.",
+          "nextStepId": "step-5-ally"
+        },
+        {
+          "id": "B",
+          "text": "Are you certain it's safe? We should proceed cautiously.",
+          "nextStepId": "step-5-ally"
+        },
+        {
+          "id": "C",
+          "text": "If you hadn't mentioned that shortcut, we'd probably be too late.",
+          "nextStepId": "step-5-ally"
+        }
+      ]
+    },
+    {
+      "id": "step-4-alone",
+      "speaker": "Narrator",
+      "message": "You continue alone. The streets are empty, but the distant sound of helicopter blades reminds you that time is running out.",
+      "choices": [
+        {
+          "id": "A",
+          "text": "I must keep moving. There's no time to hesitate.",
+          "nextStepId": "step-5-alone"
+        },
+        {
+          "id": "B",
+          "text": "If I find a shortcut, I might reach the rooftop in time.",
+          "nextStepId": "step-5-alone"
+        },
+        {
+          "id": "C",
+          "text": "I should have helped that stranger. Perhaps it's not too late to go back.",
+          "nextStepId": "step-5-regret"
+        }
+      ]
+    },
+    {
+      "id": "step-5-ally",
+      "speaker": "Rescue Pilot",
+      "message": "You made it! And you brought another survivor. We were about to leave. Get aboard!",
+      "choices": [
+        {
+          "id": "A",
+          "text": "We couldn't have made it without helping each other.",
+          "nextStepId": null
+        },
+        {
+          "id": "B",
+          "text": "I'm relieved we managed to arrive before takeoff.",
+          "nextStepId": null
+        },
+        {
+          "id": "C",
+          "text": "If we'd arrived any later, we might have missed our chance.",
+          "nextStepId": null
+        }
+      ]
+    },
+    {
+      "id": "step-5-alone",
+      "speaker": "Rescue Pilot",
+      "message": "You're lucky! We were seconds away from taking off. Hurry aboard!",
+      "choices": [
+        {
+          "id": "A",
+          "text": "I can't believe I made it!",
+          "nextStepId": null
+        },
+        {
+          "id": "B",
+          "text": "I was beginning to think I'd never escape.",
+          "nextStepId": null
+        },
+        {
+          "id": "C",
+          "text": "If I hadn't kept moving, I would have missed the helicopter.",
+          "nextStepId": null
+        }
+      ]
+    },
+    {
+      "id": "step-5-regret",
+      "speaker": "Narrator",
+      "message": "You turn back, but the helicopter takes off before you can return. The stranger is still nearby. You'll have to find another way to survive together.",
+      "choices": [
+        {
+          "id": "A",
+          "text": "We should look for a secure shelter before nightfall.",
+          "nextStepId": null
+        },
+        {
+          "id": "B",
+          "text": "If we cooperate, we might still find another evacuation route.",
+          "nextStepId": null
+        },
+        {
+          "id": "C",
+          "text": "I wish I'd made a different decision earlier.",
+          "nextStepId": null
+        }
+      ]
+    }
+  ]
+}

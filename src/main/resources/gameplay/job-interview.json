@@ -1,0 +1,165 @@
+{
+  "storyId": "job-interview",
+  "startStepId": "step-1",
+  "steps": [
+    {
+      "id": "step-1",
+      "speaker": "Interviewer",
+      "message": "Welcome! It's great to meet you. Could you tell me a little about yourself?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "I'm a recent graduate, and I'm interested in software development.",
+          "nextStepId": "step-2"
+        },
+        {
+          "id": "B",
+          "text": "I've recently finished my studies, and I'm looking for an opportunity to grow as a developer.",
+          "nextStepId": "step-2"
+        },
+        {
+          "id": "C",
+          "text": "Well, I like computers, pizza, and sleeping until noon.",
+          "nextStepId": "step-2-funny"
+        }
+      ]
+    },
+    {
+      "id": "step-2",
+      "speaker": "Interviewer",
+      "message": "That sounds interesting! Have you worked on any projects before?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Yes, I built a small web application during my studies.",
+          "nextStepId": "step-3"
+        },
+        {
+          "id": "B",
+          "text": "I've developed several personal projects using Java and Spring Boot.",
+          "nextStepId": "step-3"
+        },
+        {
+          "id": "C",
+          "text": "I haven't worked professionally yet, but I'm building my own projects.",
+          "nextStepId": "step-3"
+        }
+      ]
+    },
+    {
+      "id": "step-2-funny",
+      "speaker": "Interviewer",
+      "message": "Well, pizza is certainly popular around here! But what interests you about software development?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "I enjoy solving problems and creating useful applications.",
+          "nextStepId": "step-3"
+        },
+        {
+          "id": "B",
+          "text": "I like learning new technologies and improving my programming skills.",
+          "nextStepId": "step-3"
+        },
+        {
+          "id": "C",
+          "text": "I heard developers get unlimited coffee!",
+          "nextStepId": "step-3"
+        }
+      ]
+    },
+    {
+      "id": "step-3",
+      "speaker": "Interviewer",
+      "message": "Great! What would you say is your biggest strength?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "I'm good at working with other people.",
+          "nextStepId": "step-4"
+        },
+        {
+          "id": "B",
+          "text": "I learn quickly and adapt well to new challenges.",
+          "nextStepId": "step-4",
+          "feedback": {
+            "tone": "Professional and confident",
+            "explanation": "This is a natural way to describe your strengths during an interview. It sounds confident without being arrogant.",
+            "alternative": "I'm a quick learner, and I enjoy taking on new challenges."
+          }
+        },
+        {
+          "id": "C",
+          "text": "I'm very motivated, although I still have a lot to learn.",
+          "nextStepId": "step-4"
+        }
+      ]
+    },
+    {
+      "id": "step-4",
+      "speaker": "Interviewer",
+      "message": "Sometimes projects become stressful. How do you deal with tight deadlines?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "I try to organize my tasks and focus on priorities.",
+          "nextStepId": "step-5"
+        },
+        {
+          "id": "B",
+          "text": "I break large tasks into smaller steps and communicate with my team.",
+          "nextStepId": "step-5"
+        },
+        {
+          "id": "C",
+          "text": "I usually panic for five minutes and then start working!",
+          "nextStepId": "step-5-funny"
+        }
+      ]
+    },
+    {
+      "id": "step-5",
+      "speaker": "Interviewer",
+      "message": "Thank you for your answers. Before we finish, do you have any questions for me?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Could you tell me more about the team?",
+          "nextStepId": null
+        },
+        {
+          "id": "B",
+          "text": "What would my main responsibilities be?",
+          "nextStepId": null
+        },
+        {
+          "id": "C",
+          "text": "What opportunities are there for professional development?",
+          "nextStepId": null
+        }
+      ]
+    },
+    {
+      "id": "step-5-funny",
+      "speaker": "Interviewer",
+      "message": "At least you're honest! Let's hope the panic doesn't last too long. Do you have any questions before we finish?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Yes, could you tell me about the team?",
+          "nextStepId": null
+        },
+        {
+          "id": "B",
+          "text": "What does a typical working day look like?",
+          "nextStepId": null
+        },
+        {
+          "id": "C",
+          "text": "Do you provide emergency chocolate for stressful days?",
+          "nextStepId": null
+        }
+      ]
+    }
+  ]
+}
