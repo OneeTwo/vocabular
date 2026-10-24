@@ -9,8 +9,13 @@
       "choices": [
         {
           "id": "A",
-          "text": "I'd like a latte, please.",
-          "nextStepId": "step-2"
+          "text": "Give me a coffee.",
+          "nextStepId": "step-2",
+          "feedback": {
+            "tone": "Too direct",
+            "explanation": "This sentence is grammatically correct, but it may sound demanding when ordering coffee.",
+            "alternative": "Could I get a coffee, please?"
+          }
         },
         {
           "id": "B",

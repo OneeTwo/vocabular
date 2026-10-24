@@ -1,0 +1,18 @@
+services:
+  libretranslate:
+    image: libretranslate/libretranslate:latest
+    container_name: vocabular-translate
+
+    ports:
+      - "127.0.0.1:5000:5000"
+
+    environment:
+      LT_LOAD_ONLY: "en,uk"
+
+    volumes:
+      - libretranslate_models:/home/libretranslate/.local
+
+    restart: unless-stopped
+
+volumes:
+  libretranslate_models:

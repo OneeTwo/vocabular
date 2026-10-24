@@ -1,0 +1,629 @@
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 40px 20px 20px;
+  background: #f5f6fa;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.header h1 {
+  font-size: 40px;
+  color: #6250e8;
+  margin-bottom: 10px;
+}
+
+.header p {
+  color: #777;
+}
+
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  flex: 1;
+}
+
+.container > h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.story-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.story-card {
+  background: white;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+}
+
+.story-card h2 {
+  font-size: 21px;
+}
+
+.story-card p {
+  color: #666;
+  line-height: 1.6;
+  min-height: 75px;
+}
+
+.level {
+  display: inline-block;
+  background: #eae6ff;
+  color: #6250e8;
+  border-radius: 20px;
+  padding: 6px 12px;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.story-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.story-footer button {
+  background: #6250e8;
+  color: white;
+  border: none;
+  padding: 11px 17px;
+  border-radius: 9px;
+}
+
+.story-footer button:hover {
+  background: #4b39d0;
+}
+
+.error {
+  color: #d32f2f;
+  text-align: center;
+}
+
+/* GAME WINDOW */
+
+.game-window {
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 30px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+}
+
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.back-button {
+  background: none;
+  border: none;
+  color: #666;
+  font-size: 14px;
+}
+
+.game-title {
+  text-align: center;
+  margin: 25px 0;
+}
+
+.game-title h2 {
+  margin-bottom: 8px;
+}
+
+.game-title p {
+  color: #888;
+  margin-top: 0;
+}
+
+.dialogue {
+  padding: 22px;
+  background: #f1efff;
+  border-radius: 14px;
+  margin-bottom: 25px;
+}
+
+.dialogue strong {
+  color: #6250e8;
+}
+
+.dialogue p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+.choices {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.choice-button {
+  width: 100%;
+  text-align: left;
+  padding: 16px;
+  border: 1px solid #ddd;
+  background: white;
+  border-radius: 12px;
+  font-size: 15px;
+  transition: 0.2s;
+}
+
+.choice-button:hover:not(:disabled) {
+  background: #f1efff;
+  border-color: #6250e8;
+}
+
+.choice-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.choice-button span {
+  color: #6250e8;
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+.translate-button {
+  display: block;
+  margin: 25px auto 0;
+  background: none;
+  border: none;
+  color: #6250e8;
+  font-weight: bold;
+}
+
+.completion {
+  text-align: center;
+}
+
+.completion h2 {
+  color: #6250e8;
+}
+
+.completion button {
+  background: #6250e8;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 20px;
+  margin-top: 20px;
+}
+
+/* Vocabulary hints */
+
+.vocabulary-word {
+  display: inline;
+  border: none;
+  border-bottom: 2px dotted #6250e8;
+  background: transparent;
+  color: #6250e8;
+  font: inherit;
+  font-weight: 600;
+  padding: 0;
+  cursor: pointer;
+}
+
+.vocabulary-word:hover {
+  background: #eae6ff;
+}
+
+.vocabulary-word:focus-visible {
+  outline: 2px solid #6250e8;
+  outline-offset: 3px;
+}
+
+.vocabulary-hint {
+  margin-top: 16px;
+  padding: 18px;
+  background: white;
+  border: 1px solid #ddd8ff;
+  border-radius: 12px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.vocabulary-hint h3 {
+  margin: 0 0 12px;
+  color: #6250e8;
+}
+
+.vocabulary-hint p {
+  margin: 6px 0 14px;
+  font-size: 14px;
+}
+
+.vocabulary-hint button {
+  background: #6250e8;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 9px 15px;
+  cursor: pointer;
+}
+
+.translation-panel {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #ddd8ff;
+  border-radius: 12px;
+  background: #f8f7ff;
+}
+
+.translation-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.translation-header button {
+  border: none;
+  background: transparent;
+  font-size: 20px;
+}
+
+.translation-panel select {
+  width: 100%;
+  padding: 10px;
+  margin: 12px 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.translate-action {
+  width: 100%;
+  padding: 12px;
+  background: #6250e8;
+  color: white;
+  border: none;
+  border-radius: 8px;
+}
+
+.translation-result {
+  margin-top: 16px;
+  padding: 12px;
+  background: white;
+  border-radius: 8px;
+}
+
+/* Learning feedback */
+
+.feedback-panel {
+  margin-top: 24px;
+  padding: 24px;
+  background: #f8f7ff;
+  border: 1px solid #ddd8ff;
+  border-radius: 16px;
+}
+
+.feedback-heading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.feedback-heading h3 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.feedback-selected {
+  margin-bottom: 20px;
+}
+
+.feedback-selected span {
+  font-size: 13px;
+  color: #777;
+}
+
+.feedback-selected p {
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+.feedback-tone {
+  display: inline-block;
+  padding: 8px 14px;
+  border-radius: 8px;
+  background: #e6e1ff;
+  color: #5140ba;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.feedback-explanation {
+  line-height: 1.6;
+  color: #333;
+}
+
+.feedback-alternative {
+  background: white;
+  border-left: 3px solid #6250e8;
+  border-radius: 8px;
+  padding: 16px;
+  margin-top: 20px;
+}
+
+.feedback-alternative strong {
+  font-size: 13px;
+  color: #6250e8;
+}
+
+.feedback-alternative p {
+  margin: 8px 0 0;
+  font-weight: 500;
+}
+
+.feedback-continue {
+  margin-top: 24px;
+  width: 100%;
+  padding: 14px;
+  background: #6250e8;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.feedback-continue:hover {
+  background: #503cce;
+}
+
+.feedback-continue:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Vocabulary collection */
+
+.my-vocabulary {
+  margin: 24px 0;
+}
+
+.vocabulary-toggle {
+  background: #6250e8;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.vocabulary-collection {
+  margin-top: 20px;
+  padding: 24px;
+  background: #f8f7ff;
+  border: 1px solid #ddd8ff;
+  border-radius: 16px;
+}
+
+.vocabulary-collection h2 {
+  margin-bottom: 10px;
+}
+
+.vocabulary-empty {
+  padding: 20px 0;
+  color: #666;
+}
+
+.saved-words {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.saved-word-card {
+  padding: 20px;
+  background: white;
+  border: 1px solid #e2dfff;
+  border-radius: 12px;
+}
+
+.saved-word-card.learned {
+  border-color: #69b88e;
+  background: #f4fff8;
+}
+
+.saved-word-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.saved-word-header h3 {
+  margin: 0;
+  color: #5140ba;
+}
+
+.saved-word-header span {
+  font-size: 12px;
+  color: #666;
+}
+
+.saved-word-example {
+  font-style: italic;
+  color: #777;
+  font-size: 14px;
+}
+
+.saved-word-actions,
+.vocabulary-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.saved-word-actions button,
+.vocabulary-actions button {
+  border: none;
+  border-radius: 8px;
+  padding: 10px 14px;
+  background: #6250e8;
+  color: white;
+  cursor: pointer;
+}
+
+.saved-word-actions .remove-word {
+  background: #fce8e8;
+  color: #ae3030;
+}
+
+.vocabulary-actions button:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.footer {
+  width: 100%;
+  max-width: 1100px;
+  margin: 40px auto 0;
+  padding: 20px 0;
+  text-align: center;
+  color: #777;
+  font-size: 14px;
+}
+
+.footer p {
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .app {
+    padding: 24px 16px 16px;
+  }
+
+  .header {
+    margin-bottom: 30px;
+  }
+
+  .header h1 {
+    font-size: 32px;
+  }
+
+  .story-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .story-card {
+    padding: 20px;
+  }
+
+  .game-window {
+    padding: 20px;
+  }
+
+  .feedback-panel {
+    padding: 18px;
+  }
+
+  .vocabulary-collection {
+    padding: 18px;
+  }
+
+  .footer {
+    margin-top: 30px;
+  }
+}
+
+/* Flashcards */
+
+.practice-button {
+  margin-top: 16px;
+  padding: 12px 20px;
+  background: #6250e8;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.flashcard-session {
+  margin-top: 24px;
+  text-align: center;
+}
+
+.flashcard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.flashcard-header button {
+  border: none;
+  background: transparent;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.flashcard {
+  max-width: 500px;
+  min-height: 280px;
+  margin: 24px auto;
+  padding: 32px;
+  background: white;
+  border: 2px solid #ddd8ff;
+  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+}
+
+.flashcard h2 {
+  font-size: 28px;
+  color: #6250e8;
+  overflow-wrap: anywhere;
+}
+
+.flashcard p {
+  line-height: 1.6;
+}
+
+.flashcard-example {
+  font-style: italic;
+  color: #666;
+}
+
+.flashcard button,
+.flashcard-session > button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  background: #6250e8;
+  color: white;
+  cursor: pointer;
+}
+
+.flashcard-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
