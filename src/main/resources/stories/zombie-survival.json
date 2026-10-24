@@ -1,0 +1,25 @@
+{
+  "id": "zombie-survival",
+  "title": "Zombie Survival: The Last Escape",
+  "level": "B2",
+  "durationMinutes": 3,
+  "description": "A zombie outbreak has taken over your city. Make decisions, find supplies, and escape before it's too late.",
+  "setting": "An abandoned city during a zombie apocalypse",
+  "goal": "Survive the outbreak and reach a safe evacuation zone",
+  "vocabulary": [
+    "outbreak",
+    "shelter",
+    "supplies",
+    "evacuate",
+    "abandoned",
+    "threat",
+    "escape",
+    "survive"
+  ],
+  "grammar": [
+    "second conditional",
+    "modal verbs for deduction",
+    "past perfect",
+    "expressing consequences"
+  ]
+}

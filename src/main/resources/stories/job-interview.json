@@ -1,0 +1,19 @@
+{
+  "id": "job-interview",
+  "title": "Your First Job Interview",
+  "level": "B1",
+  "durationMinutes": 3,
+  "description": "Attend a job interview and make a good impression.",
+  "setting": "An office in London",
+  "goal": "Practice answering common interview questions",
+  "vocabulary": [
+    "experience",
+    "strengths",
+    "responsibilities",
+    "position"
+  ],
+  "grammar": [
+    "present perfect",
+    "past simple"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "coffee-shop",
+  "title": "A Coffee in New York",
+  "level": "A2",
+  "durationMinutes": 3,
+  "description": "Order your first coffee in New York.",
+  "setting": "A small coffee shop in Manhattan",
+  "goal": "Learn how to order coffee politely",
+  "vocabulary": [
+    "order",
+    "receipt",
+    "regular",
+    "to go"
+  ],
+  "grammar": [
+    "would like",
+    "polite requests"
+  ]
+}

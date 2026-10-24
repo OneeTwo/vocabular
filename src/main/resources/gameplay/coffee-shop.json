@@ -1,0 +1,138 @@
+{
+  "storyId": "coffee-shop",
+  "startStepId": "step-1",
+  "steps": [
+    {
+      "id": "step-1",
+      "speaker": "Barista",
+      "message": "Good morning! What can I get for you?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "I'd like a latte, please.",
+          "nextStepId": "step-2"
+        },
+        {
+          "id": "B",
+          "text": "Could I get a black coffee to go?",
+          "nextStepId": "step-2"
+        },
+        {
+          "id": "C",
+          "text": "Give me all your coffee!",
+          "nextStepId": "step-2-funny"
+        }
+      ]
+    },
+    {
+      "id": "step-2",
+      "speaker": "Barista",
+      "message": "Of course! Would you like something to eat?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "A croissant would be great.",
+          "nextStepId": "step-3"
+        },
+        {
+          "id": "B",
+          "text": "No, thanks. Just the coffee.",
+          "nextStepId": "step-3"
+        },
+        {
+          "id": "C",
+          "text": "What's your most popular pastry?",
+          "nextStepId": "step-3"
+        }
+      ]
+    },
+    {
+      "id": "step-2-funny",
+      "speaker": "Barista",
+      "message": "All my coffee? Wow! Are you opening your own coffee shop?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Sorry, I meant just one cup!",
+          "nextStepId": "step-3"
+        },
+        {
+          "id": "B",
+          "text": "I'm just really tired today.",
+          "nextStepId": "step-3"
+        },
+        {
+          "id": "C",
+          "text": "Yes! I have big business plans!",
+          "nextStepId": "step-3"
+        }
+      ]
+    },
+    {
+      "id": "step-3",
+      "speaker": "Barista",
+      "message": "Would you like your coffee for here or to go?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "For here, please.",
+          "nextStepId": "step-4"
+        },
+        {
+          "id": "B",
+          "text": "To go, please.",
+          "nextStepId": "step-4"
+        },
+        {
+          "id": "C",
+          "text": "Could you explain the difference?",
+          "nextStepId": "step-4"
+        }
+      ]
+    },
+    {
+      "id": "step-4",
+      "speaker": "Barista",
+      "message": "That'll be five dollars. How would you like to pay?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Can I pay by card?",
+          "nextStepId": "step-5"
+        },
+        {
+          "id": "B",
+          "text": "I'll pay in cash.",
+          "nextStepId": "step-5"
+        },
+        {
+          "id": "C",
+          "text": "Do you accept contactless payments?",
+          "nextStepId": "step-5"
+        }
+      ]
+    },
+    {
+      "id": "step-5",
+      "speaker": "Barista",
+      "message": "Here's your coffee! Have a wonderful day!",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Thanks! You too!",
+          "nextStepId": null
+        },
+        {
+          "id": "B",
+          "text": "Thank you. Have a good one!",
+          "nextStepId": null
+        },
+        {
+          "id": "C",
+          "text": "Cheers! See you around!",
+          "nextStepId": null
+        }
+      ]
+    }
+  ]
+}
