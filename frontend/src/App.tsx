@@ -12,6 +12,8 @@ import {
 import StoryCard from './components/StoryCard';
 import GameWindow from './components/GameWindow';
 import MyVocabulary from './components/MyVocabulary';
+import { completeStory } from './services/progressStorage';
+import LearningDashboard from './components/LearningDashboard';
 
 import './App.css';
 
@@ -90,6 +92,9 @@ export default function App() {
       );
 
       setProgress(nextProgress);
+      if (nextProgress.finished && selectedStory) {
+        completeStory(selectedStory.id);
+      }
     } catch (err) {
       console.error('Failed to submit answer:', err);
       setError('Unable to submit your answer. Please try again.');
@@ -140,6 +145,7 @@ export default function App() {
           ) : (
               <>
                 {/* Personal vocabulary collection */}
+                <LearningDashboard stories={stories} />
                 <MyVocabulary />
 
                 {/* Story catalogue */}
