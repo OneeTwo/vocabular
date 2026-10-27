@@ -627,3 +627,33 @@
   flex-wrap: wrap;
   gap: 12px;
 }
+
+/* Spaced repetition */
+
+.practice-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.practice-actions .practice-button {
+  margin-top: 0;
+}
+
+.practice-button.secondary {
+  background: white;
+  color: #6250e8;
+  border: 1px solid #6250e8;
+}
+
+.practice-button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.review-info {
+  font-size: 13px;
+  color: #777;
+  margin: 8px 0;
+}
