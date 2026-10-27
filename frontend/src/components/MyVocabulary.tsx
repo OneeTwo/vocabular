@@ -4,9 +4,10 @@ import Flashcards from './Flashcards';
 
 import {
     getSavedWords,
+    getDueWords,
     removeWord,
     toggleLearned,
-    setWordLearned,
+    reviewWord,
     VOCABULARY_UPDATED,
 } from '../services/vocabularyStorage';
 
@@ -14,13 +15,10 @@ import type { SavedWord } from '../services/vocabularyStorage';
 
 export default function MyVocabulary() {
     const [words, setWords] = useState<SavedWord[]>(getSavedWords);
-
     const [showVocabulary, setShowVocabulary] = useState(false);
     const [showFlashcards, setShowFlashcards] = useState(false);
-
     const [practiceWords, setPracticeWords] = useState<SavedWord[]>([]);
 
-    // Keep vocabulary synchronized with localStorage
     useEffect(() => {
         function refreshWords() {
             setWords(getSavedWords());
@@ -35,53 +33,57 @@ export default function MyVocabulary() {
         };
     }, []);
 
-    const learnedCount = words.filter((word) => word.learned).length;
-    const learningCount = words.length - learnedCount;
+    const learnedCount = words.filter(word => word.learned).length;
+    const dueCount = words.filter(
+        word => new Date(word.nextReviewAt).getTime() <= Date.now()
+    ).length;
 
-    // Start a flashcard practice session
-    function handleStartPractice() {
-        const savedWords = getSavedWords();
+    function handleStartPractice(dueOnly: boolean) {
+        const selectedWords = dueOnly ? getDueWords() : getSavedWords();
 
-        if (savedWords.length === 0) return;
+        if (selectedWords.length === 0) return;
 
-        setPracticeWords([...savedWords]);
+        setPracticeWords(selectedWords);
         setShowFlashcards(true);
     }
 
-    // Update a word's learned status after reviewing a flashcard
-    function handleReview(word: string, learned: boolean) {
-        setWordLearned(word, learned);
+    function handleReview(word: string, remembered: boolean) {
+        reviewWord(word, remembered);
     }
 
-    // Remove a saved word
-    function handleRemove(word: string) {
-        removeWord(word);
-    }
-
-    // Toggle between learned and learning
-    function handleToggleLearned(word: string) {
-        toggleLearned(word);
-    }
-
-    // Close flashcard practice
-    function handleCloseFlashcards() {
+    function handleClosePractice() {
         setShowFlashcards(false);
         setPracticeWords([]);
     }
 
-    // Open or close vocabulary collection
     function handleToggleVocabulary() {
         if (showFlashcards) {
-            handleCloseFlashcards();
+            handleClosePractice();
         }
 
-        setShowVocabulary((previous) => !previous);
+        setShowVocabulary(previous => !previous);
+    }
+
+    function formatReviewDate(date: string): string {
+        const reviewDate = new Date(date);
+
+        if (Number.isNaN(reviewDate.getTime())) {
+            return 'Review now';
+        }
+
+        if (reviewDate.getTime() <= Date.now()) {
+            return 'Due now';
+        }
+
+        return reviewDate.toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric',
+        });
     }
 
     return (
         <section className="my-vocabulary">
-
-            {/* Vocabulary button */}
             <button
                 type="button"
                 className="vocabulary-toggle"
@@ -91,57 +93,58 @@ export default function MyVocabulary() {
                 📚 My Vocabulary ({words.length})
             </button>
 
-            {/* Vocabulary collection */}
             {showVocabulary && (
                 <div className="vocabulary-collection">
-
-                    {/* Heading */}
                     <h2>My Vocabulary</h2>
 
-                    {/* Statistics */}
                     <p>
-                        Saved: {words.length} | Learning: {learningCount} |
-                        Learned: {learnedCount}
+                        Saved: {words.length} | Learned: {learnedCount} |
+                        Due now: {dueCount}
                     </p>
 
-                    {/* Flashcard practice */}
                     {showFlashcards ? (
                         <Flashcards
                             words={practiceWords}
-                            onClose={handleCloseFlashcards}
+                            onClose={handleClosePractice}
                             onReview={handleReview}
                         />
                     ) : (
                         <>
-                            {/* Practice button */}
                             {words.length > 0 && (
-                                <button
-                                    type="button"
-                                    className="practice-button"
-                                    onClick={handleStartPractice}
-                                >
-                                    🃏 Practice Flashcards
-                                </button>
+                                <div className="practice-actions">
+                                    <button
+                                        type="button"
+                                        className="practice-button"
+                                        onClick={() => handleStartPractice(true)}
+                                        disabled={dueCount === 0}
+                                    >
+                                        Practice Due Words ({dueCount})
+                                    </button>
+
+                                    <button
+                                        type="button"
+                                        className="practice-button secondary"
+                                        onClick={() => handleStartPractice(false)}
+                                    >
+                                        Practice All
+                                    </button>
+                                </div>
                             )}
 
-                            {/* Empty vocabulary */}
                             {words.length === 0 ? (
                                 <p className="vocabulary-empty">
                                     No saved words yet. Play a story and save
                                     words you want to practice!
                                 </p>
                             ) : (
-                                /* Saved words */
                                 <div className="saved-words">
-                                    {words.map((word) => (
+                                    {words.map(word => (
                                         <div
                                             key={word.word.toLowerCase()}
                                             className={`saved-word-card ${
                                                 word.learned ? 'learned' : ''
                                             }`}
                                         >
-
-                                            {/* Word header */}
                                             <div className="saved-word-header">
                                                 <h3>{word.word}</h3>
 
@@ -150,22 +153,24 @@ export default function MyVocabulary() {
                         </span>
                                             </div>
 
-                                            {/* Definition */}
                                             <p>{word.definition}</p>
 
-                                            {/* Example */}
                                             <p className="saved-word-example">
                                                 Example: {word.example}
                                             </p>
 
-                                            {/* Actions */}
-                                            <div className="saved-word-actions">
+                                            <p className="review-info">
+                                                Next review: {formatReviewDate(word.nextReviewAt)}
+                                            </p>
 
+                                            <p className="review-info">
+                                                Successful reviews: {word.reviewCount}
+                                            </p>
+
+                                            <div className="saved-word-actions">
                                                 <button
                                                     type="button"
-                                                    onClick={() =>
-                                                        handleToggleLearned(word.word)
-                                                    }
+                                                    onClick={() => toggleLearned(word.word)}
                                                 >
                                                     {word.learned
                                                         ? 'Mark as Learning'
@@ -175,11 +180,10 @@ export default function MyVocabulary() {
                                                 <button
                                                     type="button"
                                                     className="remove-word"
-                                                    onClick={() => handleRemove(word.word)}
+                                                    onClick={() => removeWord(word.word)}
                                                 >
                                                     Remove
                                                 </button>
-
                                             </div>
                                         </div>
                                     ))}
@@ -187,7 +191,6 @@ export default function MyVocabulary() {
                             )}
                         </>
                     )}
-
                 </div>
             )}
         </section>
